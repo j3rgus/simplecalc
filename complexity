@@ -1,0 +1,11 @@
+ALGORITHM
+
+Algorithm is slight modification of Shunting-yard algorithm.
+
+The modification of this algorithm is changing an output queue into a stack, where only numbers are stored. These numbers are calculated in case a ')' or an operator with a lower priority is pushing on operator stack. In other cases, operators and numbers are just added on the stack. The input is modified to start with '(' and end with ')'. This is done in order to invoke stack computiation (mentioned above) when last character is read.
+
+This approach is likely not easiest possible. I wasn't sure about what libraries I can or not use. But this kind of problem can be solved easily by generating parser using tools like ANTLR, bison, yacc.. Grammar for such expression is well-known.
+
+Time complexity is in O(n), where n is the number of characters of an input string. This can be proved by, e.g. accounting method. All operators are pushed on operator stack while numbers are pushed on number stack, while there is needed two pops and additional one push for result number stack. It is thus sufficient to add 2 credits for pushing onto operator stack and 3 credits for pushing onto number stack (these are values for only the algorithm, there is a number of constant or linear operations in an actual code).
+
+
